@@ -21,11 +21,9 @@ body{
     width: 420px;
     background: linear-gradient(to right, #ffafbd, #ffc3a0);
     border-radius: 10px;
-    
-    
+    animation: borderColorChange 5s infinite}
 
-
-}
+    
 
 .box h1{text-align: center;}
 
@@ -47,10 +45,6 @@ body{
     font-size: 30px;
     
     
-    
-
-
-
 }
 
 .input input::placeholder{
@@ -118,4 +112,56 @@ body{
 
 #logo:hover{
     scale: 1.2;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+    
+}
+
+.box::after, .box::before {
+
+    
+    content: '';
+    position :absolute;
+    height: 92%;
+    width: 31%;
+    background-image:conic-gradient(from var(--angle) ,transparent 70%, blue );
+    border-radius: 3px;
+    z-index: -1;
+    top:50%;
+    left: 50% ;
+    translate :-50% -50% ;
+    padding: 1px;
+    border-radius: 3px;
+
+    animation: 3s spin linear infinite ;
+}
+.box::before{
+     filter : blur(1.5rem);
+     opacity: 0.5;
+
+}
+
+@keyframes spin {
+    from {
+     --angle: 0deg;
+    }
+
+    to{
+        --angle : 360deg;
+
+    }
+    
+
+}
+
+#inputpassword div {
+
+    position: absolute;
+    left : 0;
+    padding: 10px 8px;
+
 }
